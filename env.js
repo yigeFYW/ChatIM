@@ -13,10 +13,10 @@ var config = {
             port:3306
         },
         redis:{
-            host:"localhost",
-            passowrd:"",
-            port:"6379",
-            select:0
+            host:"118.193.131.21",
+            password:"huanghe",
+            port:6379,
+            select:14
         }
     }
 };
