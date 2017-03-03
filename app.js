@@ -34,16 +34,16 @@ router.get("/",function(req,res){
     res.sendfile(__dirname + '/index.html');
 });
 
-router.post("/register",function(req,res){
-    var nick_name = req.body.nick_name;
-    var sex = req.body.sex;
-    var province = req.body.province;
-    var city = req.body.city;
-    var area = req.body.area;
-    var jd = req.body.jd;
-    var wd = req.body.wd;
-    res.send("ok"+JSON.stringify(req.body));
-});
+// router.post("/register",function(req,res){
+//     var nick_name = req.body.nick_name;
+//     var sex = req.body.sex;
+//     var province = req.body.province;
+//     var city = req.body.city;
+//     var area = req.body.area;
+//     var jd = req.body.jd;
+//     var wd = req.body.wd;
+//     res.send("ok"+JSON.stringify(req.body));
+// });
 
 
 app.use("/",router);
@@ -52,9 +52,29 @@ app.use("/",router);
 
 io.on("connection",function(socket){
     //对于没有认证的不做任何事情
-    sockets[socket.id] = socket;
+    var sid = socket.id.substr(2);
+    sockets[sid] = socket;
 
-
+    router.post("/register",function(req,res){
+        var nick_name = req.body.nick_name;
+        var sex = req.body.sex;
+        var province = req.body.province;
+        var city = req.body.city;
+        var area = req.body.area;
+        var jd = req.body.jd;
+        var wd = req.body.wd;
+        check_name(req.body).then(function(data){
+            if(!data){
+                res.send("有此人了");
+                res.end();
+            }
+            return save_name(data);
+        },function(err){
+            console.log(err);
+        }).then(function(data){
+            res.send("ok"+JSON.stringify(req.body));
+        });
+    });
 
 
 
@@ -66,9 +86,44 @@ io.on("connection",function(socket){
 
 
 //存入redis
-function register_save(data) {
+function check_name(data) {
     return new Promise(function(resolve,reject){
-        //判断是否存在
+        redis.sismember("socket:names",data.nick_name,function(err,result){
+            if(err){
+                reject(err);
+            }else{
+                if(result == 0) {
+                    //可以注册
+                    resolve(data);
+                }else if(result == 1){
+                    resolve(false);
+                }
+            }
+        });
+    });
+}
+
+function save_name(data){
+    return new Promise(function(resolve,reject){
+        redis.incr("socket:uid");
+        redis.get("socket:uid",function(err,result){
+            if(err){
+                reject(err);
+            }else{
+                redis.hmset("socket:uid:"+result,data);
+                //data.socketid = socket.id;
+                redis.sadd("socket:names",data.nick_name,function(err,result){
+                    if(err){
+                        reject(err);
+                    }else{
+                        if(result == 1){
+                            console.log(result);
+                            resolve(data);
+                        }
+                    }
+                });
+            }
+        });
     });
 }
 

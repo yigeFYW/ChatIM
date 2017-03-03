@@ -6,10 +6,18 @@
 </head>
 <body>
 <h1>测试</h1>
-<form action="" method="post">
-    <input type="text" name="name">
-    <input type="text" name="pwd">
+<form action="http://localhost:9000/register" method="post">
+    <input type="text" name="nick_name">
+    <input type="text" name="sex">
     <input type="submit" value="提交">
 </form>
+<script src="js/socket.io.js"></script>
 </body>
+<script>
+    var io = io("http://localhost:9000");
+
+    io.on('connect', function(){
+        console.log(io.id); //
+    });
+</script>
 </html>
