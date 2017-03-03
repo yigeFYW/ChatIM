@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <style>
+    	*{
+    		padding: 0;
+    		margin: 0;
+    	}
+    	a,a:active,a:hover,a:visited{
+    		text-emphasis: none;
+    		color:#333;
+    	}
+        .mui-col-xs-1,.mui-col-xs-10{
+            text-align: center;
+        }
+        #input{
+            border:none;
+            margin-top:3px;
+            margin-left:-5px;
+            border-radius:5px;
+        }
+        .to,.from{
+            position: relative;
+            top:2vw;
+            left:4vw;
+        }
+        .to > img{
+            height:3em;
+            border:none;
+            border-radius: 3em;
+            display:inline-block;
+            position: relative;
+            top:0vh;
+            left:-1vw;
+            box-shadow:0px 0px 5px #fff;
+        }
+        .to > span{
+            color:#fff;
+            left:2vw;
+            top:-8vw;
+            position: relative;
+        }
+        .to > div{
+            width:70vw;
+            padding:4px 5px 4px 10px;
+            background: rgba(255,255,255,0.5);
+            border-radius: 5px;
+            position: relative;
+            top:-6vw;
+            left:16vw;
+        }
+        .to>div:before{
+            content: '';
+            position: absolute;
+            background: transparent;
+            width: 0;
+            height: 0;
+            border-top: 4vw solid rgba(255,255,255,0.5);
+            border-left: 3vw solid transparent;
+            top:1.5vw;
+            left:-2.8vw;
+        }
+        .from > img{
+            height:3em;
+            border:none;
+            border-radius: 3em;
+            display:inline-block;
+            position: relative;
+            top:0vh;
+            left:79vw;
+            box-shadow:0px 0px 5px #fff;
+        }
+        .from > span{
+            color:#ff5000;
+            left:52vw;
+            top:-8vw;
+            position: relative;
+        }
+        .from > div{
+            width:70vw;
+            padding:4px 5px 4px 10px;
+            background: rgba(255,255,255,0.5);
+            border-radius: 5px;
+            position: relative;
+            top:-6vw;
+            left:3vw;
+        }
+        .from > div:after{
+            content: '';
+            position: absolute;
+            background: transparent;
+            width: 0;
+            height: 0;
+            border-top: 4vw solid rgba(255,255,255,0.5);
+            border-right: 3vw solid transparent;
+            top:1.5vw;
+            left:70vw;
+        }
+        #pos{
+            position: relative;
+        }
+        li{
+            list-style: none;
+        }
+        #body{
+            position: absolute;
+            top:44px;
+        }
+    </style>
+</head>
+<body style="font-family: '微软雅黑',sans-serif;background-image: url(images/bg.jpg);background-size: cover">
+<header class="mui-bar mui-bar-nav" style="background:linear-gradient(180deg,#FF9999,#FF9966);font-weight: 500">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    <a class="mui-pull-right mui-icon" style="font-size: 1.1em;"><i class="fa fa-user"></i></a>
+    <h1 class="mui-title">IM <span id="inorto">in</span> <span id="to_user">李翔</span></h1>
+</header>
+<div class="mui-content" id="body" style="width: 100%;background: transparent;">
+    <div class="mui-scroll-wrapper" id="text_list">
+        <div class="mui-scroll">
+            <!--正文部分-->
+            <ul id="ul">
+                <li class="to">
+                    <img src="./images/headimg/2.jpg" class="headimg">
+                    <span class="name">李明</span>
+                    <div class="con">
+                        1111111111
+                    </div>
+                </li>
+                <li class="from">
+                    <img src="./images/headimg/2.jpg" class="headimg">
+                    <span class="name">李明</span>
+                    <div class="con">
+                        9999999999999999交换空间很快就黄金客户好几个即可很快解决科技好尴尬花见花开解决
+                    </div>
+                </li>
+            </ul>
+            <div id="last"></div>
+        </div>
+    </div>
+</div>
+<footer class="mui-bar mui-bar-footer" style="background: #eee;box-shadow: 0px -2px 5px #fff">
+    <div class="mui-content" style="background: transparent">
+        <div class="mui-row">
+            <div class="mui-col-xs-10">
+                <input type="text" class="mui-input-clear" id="input">
+            </div>
+            <div class="mui-col-xs-2">
+                <button id="send_btn" style="line-height: 2em;text-align: center;border:none;border-radius: 5px;margin-top:2px;background: #eee;margin-left: 3px;width: 4em;">发送</button>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+<script src="js/mui.min.js"></script>
+<script>
+    var realhe = document.body.scrollHeight;//618
+    var he = (document.body.scrollHeight-89)+"px";
+    $id("body").style.height = he;
+
+    var plu;
+
+    mui.init();
+    mui.plusReady(function(){
+        plu = plus;
+    });
+
+
+    $id("input").addEventListener("tap",function(event){
+        //$id("text_list").scrollTop = $id("text_list").scrollHeight;
+    });
+
+    $id("send_btn").addEventListener("tap",function(){
+        inputFocus();
+    });
+    //解决按发送键盘关闭问题
+    function inputFocus() {
+        $id("input").value="";
+        $id("input").focus();
+        setTimeout(function() {
+            $id("input").focus();
+        }, 150);
+    }
+
+    window.addEventListener("resize",function(){
+        if($id("ul").getElementsByTagName("li").length <= 5){
+            return false;
+        }
+        var rhe = document.body.scrollHeight;//573
+        var h = plu.android.invoke(plu.android.currentWebview(),'getHeight')/plu.screen.scale;
+        var a = plu.screen.resolutionHeight;
+        var b = h-a;
+        if((realhe - rhe) > 20){
+            $id("last").scrollIntoView();
+            $id("body").style.paddingBottom = "3em";
+            //弹出键盘
+//            setTimeout(function(){
+//                $id("text_list").scrollTop = $id("text_list").scrollHeight + b;
+//                $id("ul").style.marginTop = "-253px";
+//            },100);
+        }else{
+            $id("ul").style.paddingBottom = "0px";
+        }
+    });
+
+    mui("#text_list").scroll({deceleration: 0.0005});
+    mui("#text_list").scroll().refresh();
+    function $id(doc){
+        return document.getElementById(doc);
+    }
+</script>
+</html>

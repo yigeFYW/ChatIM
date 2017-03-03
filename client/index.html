@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <style>
+        #offCanvasWrapper{
+            background-image: url(images/timg.jpg);
+            background-size: 100vw 100vh;
+        }
+        .mui-btn-red{
+            background: #ff5000;
+        }
+        .friend{
+            width:95vw;
+        }
+        .mui-btn-green{
+            background: linear-gradient(180deg,#66FFCC,#66CCCC);
+        }
+        .sk{
+            position: absolute;
+            line-height: 2em;
+        }
+        .mui-btn-success{
+            border:none;
+            background: transparent;
+            box-shadow: 1px 1px 5px #ff5000;
+            height:2em;
+            line-height: 1.5em;
+            font-size: 1.5em;
+            width:5em;
+            border-radius: 10px;
+            margin-top:15px;
+            text-shadow: 1px 1px 2px #ff6600;
+        }
+        input::-webkit-input-placeholder{
+            color:#fff;
+        }
+    </style>
+</head>
+<body>
+<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable mui-scalable">
+    <!--侧滑菜单部分-->
+    <aside id="offCanvasSide" class="mui-off-canvas-left" style="background: transparent">
+        <div id="offCanvasSideScroll" class="mui-scroll-wrapper">
+            <div class="mui-scroll" style="font-family: '微软雅黑', sans-serif;font-weight: 100;">
+                <img src="images/A+.png" style="display: block;border:none;opacity:0.6;margin: 0 auto;width:70%;margin-top: 10vh;">
+                <br>
+                <br>
+                <ul class="mui-table-view" style="width: 80%;border:none;opacity:0.8;border-radius: 10px;margin: 0 auto;background:#fff;box-shadow: 5px 5px 10px #fff">
+                    <li class="mui-table-view-cell mui-collapse" style="border: none;border-radius:10px;">
+                        <a class="mui-navigate-right" href="#">我的资料</a>
+                        <div class="mui-collapse-content">
+                            <p style="color:#000;"><span>昵称:</span><span>黄河</span></p>
+                            <p style="color:#000;">性别:<span>男</span></p>
+                            <p style="color:#000;"><span>手机号:</span><span>18695275660</span></p>
+                        </div>
+                    </li>
+                    <li class="mui-table-view-cell mui-collapse" style="border: none;border-radius:10px;">
+                        <a class="mui-navigate-right" href="#">聊天室列表</a>
+                        <div class="mui-collapse-content">
+
+                        </div>
+                    </li>
+                    <li class="mui-table-view-cell mui-collapse" style="border: none;border-radius:10px;">
+                        <a class="mui-navigate-right" href="#">帮助</a>
+                        <div class="mui-collapse-content">
+                            <p style="color:#333;">深刻的减肥开始京东方看时间adsfasdfasdfasdfasdf</p>
+                        </div>
+                    </li>
+                    <li class="mui-table-view-cell mui-collapse" style="border: none;border-radius:10px;">
+                        <a class="mui-navigate-right" href="#">版本 0.0.1</a>
+                        <div class="mui-collapse-content">
+                            <p style="color:#333;">深刻的减肥开始京东方看时间adsfasdfasdfasdfasdf</p>
+                        </div>
+                    </li>
+                    <li class="mui-table-view-cell mui-collapse" style="border: none;border-radius:10px;">
+                        <a class="mui-navigate-right" href="#">作者 <small>(Mr.adam)</small></a>
+                        <div class="mui-collapse-content">
+                            <p style="color:#333;">深刻的减肥开始京东方看时间adsfasdfasdfasdfasdf</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </aside>
+    <!--主界面部分-->
+    <div class="mui-inner-wrap" style="font-family: '微软雅黑',sans-serif;box-shadow: 2px 2px 10px #fff">
+        <header class="mui-bar mui-bar-nav" style="background:linear-gradient(180deg,#FF9999,#FF9966);font-weight: 500">
+            <a href="#offCanvasSide" class="mui-icon mui-action-menu mui-icon-bars mui-pull-left" style="color: #000;"></a>
+            <a class="mui-icon mui-icon-plusempty mui-pull-right" style="color: #000;font-size: 2em;line-height: 0.5em"></a>
+            <h1 class="mui-title">A+ IM</h1>
+        </header>
+        <div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper" style="background-image:url(images/bg.jpeg);background-size: 100vw 100vh;">
+
+            <!--注册区-->
+            <div class="mui-scroll" >
+                <div class="mui-scroll mui-card" id="zhuce" style="width: 95vw;border-radius: 10px;background: rgba(255,255,255,0.5);text-align: center;padding: 1em;box-shadow: 1px 1px 5px #aaa">
+                    <h4 style="color:#fff;margin:1vh auto 2vh 2vw;text-shadow: 1px 1px 2px #ff6600;">温馨提示</h4>
+                    <p style="color: #fff;text-shadow: 1px 1px 2px #ff6600;text-align: left;text-indent:2em;">
+                        A+ IM 聊天室0.01测试版本暂时没有账号系统,首次打开即注册完成,请谨慎修改昵称,联系方式等信息,修改之后将不可再次修改,
+                        希望大家多多支持,期待正式版的到来!
+                        <br>
+                        <span style="text-align: right;display:block;text-indent:2em;">Mr.adam</span>
+                    </p>
+                </div>
+                <div class="mui-scroll mui-card" style="width: 95vw;border-radius: 10px;background: rgba(255,255,255,0.5);text-align: center;padding: 1em;box-shadow: 1px 1px 5px #aaa">
+                    <h4 style="color:#fff;margin:1vh auto 2vh 2vw;text-shadow: 1px 1px 2px #ff6600;">用户注册</h4>
+                    <p style="color: #fff;text-shadow: 1px 1px 2px #ff6600;text-align: left;font-size: 1.5em;">
+                        <span class="sk">昵称: </span><input id="nick_name" type="text" placeholder="只允许填写中文" style="display:inline-block;color:#333;border: none;background:transparent;text-indent: 5em;box-shadow: 1px 1px 2px #ff5000;border-radius:10px;text-shadow: 1px 1px 2px #ff5000;color:#fff;">
+                    </p>
+                    <p style="color: #fff;text-shadow: 1px 1px 2px #ff6600;text-align: left;font-size: 1.5em;">
+                        <div id="select_sex" style="display:block;color:#333;font-size:1.5em;height: 2em;width: 100%;text-align:left;line-height: 2em;border: none;background:transparent;box-shadow: 1px 1px 2px #ff5000;border-radius:10px;text-shadow: 1px 1px 2px #ff5000;color:#fff;">
+                            性别: <span style="text-indent:2em;"><span class="man sex"><i class="fa fa-mars"></i>正太</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="woman sex"><i class="fa fa-venus"></i>萝莉</span></span>
+                        </div>
+                    </p>
+                    <button class="mui-btn mui-btn-success" id="register">注册</button>
+                </div>
+            </div>
+
+            <!-- ##内容区## -->
+            <div class="mui-scroll" style="display:none;">
+                <div class="mui-scroll mui-card" style="width: 95vw;border-radius: 10px;background: rgba(255,255,255,0.5);">
+                    <h4 style="color:#fff;margin:1vh auto 2vh 2vw;text-shadow: 1px 1px 2px #ff6600;">我的好友</h4>
+                    <ul id="friend" class="mui-table-view" style="background-color: rgba(255,255,255,0.2);border:none;">
+                        <li class="mui-table-view-cell friend" style="box-shadow: 1px 1px 3px #ff6600;margin-bottom: 2px;">
+                            <div class="mui-slider-right mui-disabled">
+                                <a class="mui-btn mui-btn-red">删除好友</a>
+                            </div>
+                            <div class="mui-slider-handle" style="background:transparent;">
+                                <div class="mui-table-cell mui-media">
+                                    <a href="javascript:;">
+                                        <img class="mui-media-object mui-pull-left" style="border-radius: 30px;" src="./images/headimg/1.jpg">
+                                        <div class="mui-media-body">
+                                            <span style="color:#ff6600;">幸福</span>
+                                            <p class='mui-ellipsis' style="color:#333;">距离您是打发撒打发斯蒂芬水电费楼上的0.22公里</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="mui-table-view-cell friend" style="box-shadow: 1px 1px 3px #ff6600">
+                            <div class="mui-slider-right mui-disabled">
+                                <a class="mui-btn mui-btn-red">删除好友</a>
+                            </div>
+                            <div class="mui-slider-handle" style="background:transparent;">
+                                <div class="mui-table-cell mui-media">
+                                    <a href="javascript:;">
+                                        <img class="mui-media-object mui-pull-left" style="border-radius: 30px;" src="./images/headimg/1.jpg">
+                                        <div class="mui-media-body">
+                                            <span style="color:#ff6600;">幸福</span>
+                                            <p class='mui-ellipsis' style="color:#333;">距离您是打发撒打发斯蒂芬水电费楼上的0.22公里</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="mui-table-view-cell friend" style="box-shadow: 1px 1px 3px #ff6600">
+                            <div class="mui-slider-right mui-disabled">
+                                <a class="mui-btn mui-btn-red">删除好友</a>
+                            </div>
+                            <div class="mui-slider-handle" style="background:transparent;">
+                                <div class="mui-table-cell mui-media">
+                                    <a href="javascript:;">
+                                        <img class="mui-media-object mui-pull-left" style="border-radius: 30px;" src="./images/headimg/1.jpg">
+                                        <div class="mui-media-body">
+                                            <span style="color:#ff6600;">幸福</span>
+                                            <p class='mui-ellipsis' style="color:#333;">距离您是打发撒打发斯蒂芬水电费楼上的0.22公里</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="mui-scroll mui-card" style="width: 95vw;border-radius: 10px;background: rgba(255,255,255,0.5);">
+                    <h4 style="color:#fff;margin:1vh auto 2vh 2vw;text-shadow: 1px 1px 2px #ff6600;">在线用户</h4>
+                    <ul id="friend1" class="mui-table-view" style="background-color: rgba(255,255,255,0.2);border:none;">
+                        <li class="mui-table-view-cell friend" style="box-shadow: 1px 1px 3px #ff6600;margin-bottom: 2px;">
+                            <div class="mui-slider-right mui-disabled">
+                                <a class="mui-btn mui-btn-green">添加为好友</a>
+                            </div>
+                            <div class="mui-slider-handle" style="background:transparent;">
+                                <div class="mui-table-cell mui-media">
+                                    <a href="javascript:;">
+                                        <img class="mui-media-object mui-pull-left" style="border-radius: 30px;" src="./images/headimg/1.jpg">
+                                        <div class="mui-media-body">
+                                            <span style="color:#ff6600;">幸福</span>
+                                            <p class='mui-ellipsis' style="color:#333;">距离您是打发撒打发斯蒂芬水电费楼上的0.22公里</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="mui-table-view-cell friend" style="box-shadow: 1px 1px 3px #ff6600">
+                            <div class="mui-slider-right mui-disabled">
+                                <a class="mui-btn mui-btn-green">添加为好友</a>
+                            </div>
+                            <div class="mui-slider-handle" style="background:transparent;">
+                                <div class="mui-table-cell mui-media">
+                                    <a href="javascript:;">
+                                        <img class="mui-media-object mui-pull-left" style="border-radius: 30px;" src="./images/headimg/1.jpg">
+                                        <div class="mui-media-body">
+                                            <span style="color:#ff6600;">幸福</span>
+                                            <p class='mui-ellipsis' style="color:#333;">距离您是打发撒打发斯蒂芬水电费楼上的0.22公里</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="mui-table-view-cell friend" style="box-shadow: 1px 1px 3px #ff6600">
+                            <div class="mui-slider-right mui-disabled">
+                                <a class="mui-btn mui-btn-green">添加为好友</a>
+                            </div>
+                            <div class="mui-slider-handle" style="background:transparent;">
+                                <div class="mui-table-cell mui-media">
+                                    <a href="javascript:;">
+                                        <img class="mui-media-object mui-pull-left" style="border-radius: 30px;" src="./images/headimg/1.jpg">
+                                        <div class="mui-media-body">
+                                            <span style="color:#ff6600;">幸福</span>
+                                            <p class='mui-ellipsis' style="color:#333;">距离您是打发撒打发斯蒂芬水电费楼上的0.22公里</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="mui-off-canvas-backdrop"></div>
+    </div>
+</div>
+</body>
+<script src="js/mui.min.js"></script>
+<script src="js/socket.min.js"></script>
+<script type="text/javascript" charset="utf-8">
+    var user_info = {
+        nick_name:null,
+        sex:0,
+        jd:null,
+        wd:null,
+        mobile:null,
+        province:null,
+        city:null,
+        area:null
+    };
+    mui.init();
+
+    mui.plusReady(function(){
+        //获取地理位置信息
+        plus.geolocation.getCurrentPosition( function(e){
+            //获取成功回调
+            user_info.wd = e.coords.latitude;
+            user_info.jd = e.coords.longitude;
+            user_info.province = e.address.province;
+            user_info.city = e.address.city;
+            user_info.area = e.address.district;
+            plus.storage.setItem("user_info",JSON.stringify(user_info));
+            //alert(JSON.stringify(user_info));
+        }, function(e){
+            //清除定时器
+            switch(e.code){
+                case 1:
+                    alert("您拒绝了位置访问!");
+                    break;
+                case 2:
+                    alert("位置信息不可用!");
+                    break;
+                case 3:
+                    alert("获取位置超时!");
+                    break;
+                default:
+                    alert("发生未知错误!");
+                    break;
+            }
+        },{"provider":"amap"});
+    });
+    //绑定事件
+    $id("nick_name").addEventListener("tap",function(){
+        setTimeout(function(){
+            $id("offCanvasContentScroll").scrollTop = $id("offCanvasContentScroll").scrollHeight;
+        },100);
+    });
+    //选择性别
+    mui("#select_sex").on("tap",".sex",function(){
+        document.getElementsByClassName("sex")[0].style.textShadow = "1px 1px 2px #ff5000";
+        document.getElementsByClassName("sex")[1].style.textShadow = "1px 1px 2px #ff5000";
+        this.style.textShadow = "1px 1px 3px #fff";
+        if(this.innerHTML.indexOf("mars") >= 0){
+            //男
+            user_info.sex = 1;
+        }else{
+            user_info.sex = 2;
+        }
+    });
+
+    //注册按钮点击事件
+    $id("register").addEventListener("tap",function(){
+        //判断昵称是否填写
+        if(!$id("nick_name").value){
+            mui.toast("请填写昵称!");
+            return false;
+        }
+        //判断昵称是否是中文
+        var name_pattern = /^[\u4E00-\u9FA5]{1,6}$/;
+        if(!name_pattern.test($id("nick_name").value)){
+            mui.toast("昵称不合法,请重新填写!");
+            return false;
+        }
+        //去掉input的焦点
+        $id("nick_name").blur();
+        //判断是否选择性别
+        if(user_info.sex == 0){
+            mui.toast("请选择性别!");
+            return false;
+        }
+        //提交注册
+        var reg_btn = this;
+        reg_btn.setAttribute("disabled",true);
+        reg_btn.innerHTML = '<i class="fa fa-circle-o-notch fa-spin"></i>';
+
+        //开始注册
+
+    });
+
+    //显示滚动条
+    mui('#offCanvasContentScroll').scroll({
+        deceleration: 0.0005
+    });
+    function $id(doc) {
+        return document.getElementById(doc);
+    }
+</script>
+</html>
