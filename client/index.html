@@ -238,6 +238,7 @@
 </body>
 <script src="js/mui.min.js"></script>
 <script src="js/socket.min.js"></script>
+<script src="js/global.js"></script>
 <script type="text/javascript" charset="utf-8">
     var user_info = {
         nick_name:null,
@@ -335,5 +336,25 @@
     function $id(doc) {
         return document.getElementById(doc);
     }
+
+    //注册
+    function register(data){
+        return new Promise(function(resolve,reject){
+            mui.ajax(global_url+"register",{
+                type:"post",
+                data:data,
+                dataType:"json",
+                success:function(res){
+                    resolve(res);
+                },
+                error:function(xhr){
+                    reject(xhr);
+                    //alert("error :"+xhr.status);
+                }
+            });
+        });
+    }
+
+
 </script>
 </html>

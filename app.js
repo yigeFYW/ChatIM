@@ -21,8 +21,11 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 var router =  express.Router();
 
 
+//定义链接
+var sockets = {};
+var names = {};
 
-//测试
+//路由
 router.get("/",function(req,res){
     redis.keys('*',function(err,result){
         console.log(result);
@@ -31,14 +34,41 @@ router.get("/",function(req,res){
     res.sendfile(__dirname + '/index.html');
 });
 
-router.post("/",function(req,res){
-    console.log(req.body);
+router.post("/register",function(req,res){
+    var nick_name = req.body.nick_name;
+    var sex = req.body.sex;
+    var province = req.body.province;
+    var city = req.body.city;
+    var area = req.body.area;
+    var jd = req.body.jd;
+    var wd = req.body.wd;
     res.send("ok"+JSON.stringify(req.body));
 });
-
 
 
 app.use("/",router);
 
 
+
+io.on("connection",function(socket){
+    //对于没有认证的不做任何事情
+    sockets[socket.id] = socket;
+
+
+
+
+
+    //监听断开链接事件
+    socket.on("disconnect",function(){
+        delete sockets[socket.id];//删除用户
+    });
+});
+
+
+//存入redis
+function register_save(data) {
+    return new Promise(function(resolve,reject){
+        //判断是否存在
+    });
+}
 
